@@ -1,0 +1,62 @@
+{
+    "name": "tree-sitter-gringo",
+    "version": "1.0.0",
+    "description": "Tree-sitter grammar for gringo (clasp)",
+    "main": "bindings/node",
+    "types": "bindings/node",
+    "keywords": [
+        "incremental",
+        "parsing",
+        "tree-sitter",
+        "gringo",
+        "clingo",
+        "ASP"
+    ],
+    "files": [
+        "grammar.js",
+        "binding.gyp",
+        "prebuilds/**",
+        "bindings/node/*",
+        "queries/*",
+        "src/**"
+    ],
+    "scripts": {
+        "lint": "eslint \"**/*.js\" --fix",
+        "format": "prettier \"**/*.js\" --write",
+        "test": "tree-sitter test",
+        "prebuildify": "prebuildify --napi --strip",
+        "build": "tree-sitter generate",
+        "build-wasm": "tree-sitter build --wasm",
+        "install": "node-gyp-build"
+    },
+    "author": "Lorenzo Cian",
+    "license": "MIT",
+    "devDependencies": {
+        "@ianvs/prettier-plugin-sort-imports": "^4.2.1",
+        "eslint": "^9.4.0",
+        "eslint-config-prettier": "^9.1.0",
+        "eslint-plugin-prettier": "^5.1.3",
+        "prettier": "^3.3.2",
+        "prettier-plugin-sort-json": "^4.0.0",
+        "tree-sitter-cli": "^0.22.6",
+        "prebuildify": "^6.0.0"
+    },
+    "dependencies": {
+        "node-addon-api": "^7.1.0",
+        "node-gyp-build": "^4.8.0"
+    },
+    "peerDependencies": {
+        "tree-sitter": "^0.21.0"
+    },
+    "peerDependenciesMeta": {
+        "tree_sitter": {
+            "optional": true
+        }
+    },
+    "tree-sitter": [
+        {
+            "scope": "source.gringo",
+            "injection-regex": "^gringo$"
+        }
+    ]
+}
